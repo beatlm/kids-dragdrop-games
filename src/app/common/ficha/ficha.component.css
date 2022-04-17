@@ -1,0 +1,17 @@
+.pieza{
+    font-size: medium;
+    width: 0.8em;
+    color:rgb(57, 56, 56);
+    background-color: antiquewhite;
+    border: 2px rgb(58, 58, 59) solid;
+    padding: 9px;
+    display: inline-block;
+}
+.operation{
+    background-color: gray;
+}
+.result{
+    border: 2px rgb(58, 58, 59) dotted;
+background-color: black;
+color: black;
+}

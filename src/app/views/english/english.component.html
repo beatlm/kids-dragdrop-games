@@ -1,0 +1,54 @@
+
+
+<div cdkDropList #cdkShips=cdkDropList 
+[cdkDropListData]="operaciones" class="ship-list"
+[cdkDropListConnectedTo]="[cdkBoard]" 
+(cdkDropListDropped)="drop($event)" 
+cdkDropListSortingDisabled="true">
+
+<ng-container *ngFor="let operacion of operaciones">
+    <div  >
+   <app-ficha></app-ficha>
+        <div *cdkDragPlaceholder></div>
+    </div>
+</ng-container>
+</div>
+
+<div cdkDropList #cdkBoard=cdkDropList style="position:relative" 
+     [cdkDropListData]="resultados" 
+     [cdkDropListConnectedTo]="[cdkShips]"
+     (cdkDropListDropped)="drop($event)" 
+     cdkDropListSortingDisabled="true">
+
+    <ng-container *ngFor="let resultado of resultados">
+        <div style="position:absolute" 
+            
+            cdkDrag>
+<p> {{resultado.value}}</p>          
+  <div *cdkDragPlaceholder></div>
+        </div>
+    </ng-container>
+
+    <!---this it's only to draw the board-->
+    <div class="row" *ngFor="let row of board;let i=index">
+        <div class="cell" *ngFor="let box of row;let j=index" id='columns'>
+            <button #bt mat-button class="bt-cell" 
+              (mouseover)="position=bt.getBoundingClientRect()">
+            </button>
+        </div>
+    </div>
+</div>
+
+----------------------------------------------------------------
+
+<div class="example-boundary" >
+ 
+</div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+
+  </div>
+
+<div class="resultados">
+  <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+En cualquiera  </div>
+</div>
