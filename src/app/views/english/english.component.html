@@ -29,14 +29,7 @@ cdkDropListSortingDisabled="true">
         </div>
     </ng-container>
 
-    <!---this it's only to draw the board-->
-    <div class="row" *ngFor="let row of board;let i=index">
-        <div class="cell" *ngFor="let box of row;let j=index" id='columns'>
-            <button #bt mat-button class="bt-cell" 
-              (mouseover)="position=bt.getBoundingClientRect()">
-            </button>
-        </div>
-    </div>
+    
 </div>
 
 ----------------------------------------------------------------

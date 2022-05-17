@@ -1,3 +1,4 @@
+import { QuizModel } from './../../core/quiz.model';
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
@@ -7,61 +8,21 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./maths.component.css']
 })
 export class MathsComponent implements OnInit {
-  ngOnInit(): void {
-  }
-
-
+  public initialQuiz: QuizModel[];
   title = 'kids games';
-  website = 'https://samorgill.com';
 
-  todos = [
-    {
-      name: 'Angular',
-      category: 'Web Development'
-    },
-    {
-      name: 'Flexbox',
-      category: 'Web Development'
-    },
-    {
-      name: 'iOS',
-      category: 'App Development'
-    },
-    {
-      name: 'Java',
-      category: 'Software development'
-    }
-  ];
-
-  resultados = [
-    {
-      name: 'Android',
-      value: '3'
-    },
-    {
-      name: 'MongoDB',
-      value: '4'
-    },
-    {
-      name: 'ARKit',
-      value: '7'
-    },
-    {
-      name: 'React',
-      value: '8'
-    }
-  ];
-
-  onDrop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex, event.currentIndex);
-    }
+  ngOnInit(): void {
+this.initialQuiz=[new  QuizModel("2", "+", "8", "10"), new QuizModel("3","-","1","2")];
+console.log(this.initialQuiz);
   }
+
+
+public validate(){
+  this.initialQuiz[0].validation=true;
+  this.initialQuiz[1].validation=false;
+console.log(this.initialQuiz);
+}
+
+ 
 
 }
