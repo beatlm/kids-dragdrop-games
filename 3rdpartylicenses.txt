@@ -330,8 +330,6 @@ MIT
 
 @angular/material/button
 
-@angular/material/card
-
 @angular/forms
 MIT
 
